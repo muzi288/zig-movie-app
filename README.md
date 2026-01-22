@@ -85,3 +85,9 @@ npm start
 
 ---
 
+## Extended Documentation
+
+A full technical design and implementation document (PDF) was created
+covering architecture decisions, data flow, UI/UX rationale, and testing
+strategy. This document is included as part of the interview submission
+materials.
