@@ -2,31 +2,244 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
+/* -----------------------------
+   Light / Dark Backgrounds
+------------------------------ */
+.dark-bg {
+  background-color: #0f172a;
   min-height: 100vh;
+  color: #ffffff;
+}
+
+.light-bg {
+  background-color: #f8f9fa;
+  min-height: 100vh;
+  color: #000000;
+}
+
+/* -----------------------------
+   Search Bar
+------------------------------ */
+.form-control {
+  width: 360px;
+  max-width: 70%;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #1e40af;
+  color: #ffffff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+/* -----------------------------
+   Headings
+------------------------------ */
+h2 {
+  text-align: center;
+  color: #1e40af;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* -----------------------------
+   Movie Cards (MAIN FIX)
+------------------------------ */
+.card {
+  border: 2px solid rgba(255, 255, 255, 0.4); /* permanent white outline */
+  border-radius: 6px;
+  width: 12rem;               /* keeps grid unchanged */
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
+}
+
+/* Hover glow stays */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 18px 6px rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.85);
+}
+
+/* RESTORE FULL POSTER HEIGHT */
+.movie-poster {
+  width: 100%;
+  height: auto;        /* ← THIS FIXES CROPPING */
+  object-fit: contain; /* show full poster */
+}
+
+
+/* Card body more compact */
+.card-body {
+  padding: 0.6rem;
+}
+
+/* Titles smaller + max 2 lines */
+.card-title {
+  font-size: 0.9rem;
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
+  max-height: 2.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Rating text */
+.card-body p {
+  font-size: 0.8rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Genre badges smaller */
+.badge.bg-secondary {
+  font-size: 0.65rem;
+  padding: 0.25rem 0.4rem;
+}
+
+/* Favorite heart */
+.favorite-icon.heart {
+  font-size: 1.05rem;
+  cursor: pointer;
+  color: #9ca3af;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.favorite-icon.heart.active {
+  color: #b91c1c;
+  animation: pop 0.25s ease;
+}
+
+.favorite-icon.heart:hover {
+  transform: scale(1.2);
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+/* -----------------------------
+   Pagination
+------------------------------ */
+.pagination {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 2rem 0;
+  gap: 0.5rem;
+}
+
+.pagination button {
+  background-color: #1e40af;
   color: white;
+  border: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.pagination button:hover {
+  background-color: #1d4ed8;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pagination button.active {
+  background-color: #ffd700;
+  color: black;
 }
+
+/* -----------------------------
+   Movie Detail Page
+------------------------------ */
+.movie-detail-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 2rem 0;
+}
+
+.movie-detail-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0,0,0,0.6); /* only background darkened */
+  z-index: 1;
+}
+
+.movie-detail-bg .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Movie detail card (NO HOVER) */
+.movie-detail-card {
+  border: 2px solid rgba(255,255,255,0.6);
+  border-radius: 6px;
+  padding: 0.25rem;
+  background-color: transparent;
+}
+
+.movie-detail-card img {
+  border-radius: 4px;
+  width: 100%;
+}
+
+/* Disable hover effects on detail page */
+.movie-detail-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Prevent Bootstrap form-control from breaking search bar */
+.form-control:not(.search-input) {
+  width: 360px;
+  max-width: 70%;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+/* -----------------------------
+   Search Bar (Rounded + Icon)
+------------------------------ */
+.search-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.search-input {
+  flex: 1;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.search-input:focus {
+  border-color: #1e40af;
+  box-shadow: 0 0 6px rgba(30, 64, 175, 0.4);
+}
+
+.search-button {
+  border-radius: 999px;
+  border: none;
+  background-color: #1e40af;
+  color: white;
+  padding: 0.45rem 0.7rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.search-button:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.1);
+}
+
