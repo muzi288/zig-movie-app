@@ -74,13 +74,18 @@ All client-side data is retrieved exclusively through these endpoints.
 
 ### Server
 bash
+
 cd serverside
+
 dotnet restore
+
 dotnet run
 
 ### Client
 cd clientside/zig-movie-app
+
 npm install
+
 npm start
 
 ---
