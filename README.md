@@ -1,4 +1,4 @@
-# 🎬 Zig Movie App — Interview Coding Challenge (Step 1)
+# 🎬 Zig Movie App 
 
 Candidate: Muziwakhe Wellington Zulu  
 Role: Software Engineer  
